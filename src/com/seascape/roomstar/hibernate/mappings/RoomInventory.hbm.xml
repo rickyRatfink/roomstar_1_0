@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 9, 2013 3:45:53 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.seascape.roomstar.hibernate.mappings.RoomInventory" table="room_inventory" catalog="rstar_dev">
+        <id name="roomInventoryId" type="long">
+            <column name="room_inventory_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="roomTypeId" type="long">
+            <column name="room_type_id" not-null="true" />
+        </property>
+        <property name="displayNumber" type="string">
+            <column name="display_number" length="20" />
+        </property>
+        <property name="displayName" type="string">
+            <column name="display_name" length="50" />
+        </property>
+        <property name="floorLevel" type="java.lang.Integer">
+            <column name="floor_level" />
+        </property>
+        <property name="adjoiningRoom" type="java.lang.Long">
+            <column name="adjoining_room" />
+        </property>
+    </class>
+</hibernate-mapping>

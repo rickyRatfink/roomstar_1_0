@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 9, 2013 3:45:53 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.seascape.roomstar.hibernate.mappings.Customer" table="customer" catalog="rstar_dev">
+        <id name="customerId" type="java.lang.Long">
+            <column name="customer_id" />
+            <generator class="identity" />
+        </id>
+        <property name="firstname" type="string">
+            <column name="firstname" length="45" />
+        </property>
+        <property name="lastname" type="string">
+            <column name="lastname" length="45" />
+        </property>
+        <property name="suffix" type="string">
+            <column name="suffix" length="45" />
+        </property>
+        <property name="creationDate" type="string">
+            <column name="creation_date" length="45" />
+        </property>
+        <property name="createdBy" type="string">
+            <column name="created_by" length="45" />
+        </property>
+        <property name="rewardsNumber" type="string">
+            <column name="rewards_number" length="20" />
+        </property>
+        <property name="organization" type="string">
+            <column name="organization" length="60" />
+        </property>
+        <property name="notes" type="string">
+            <column name="notes" length="16277215" />
+        </property>
+    </class>
+</hibernate-mapping>

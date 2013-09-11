@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 9, 2013 3:45:53 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.seascape.roomstar.hibernate.mappings.Amentity" table="amentity" catalog="rstar_dev">
+        <id name="amentityId" type="java.lang.Long">
+            <column name="amentity_id" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="20" />
+        </property>
+        <property name="totalQuantityAvailable" type="java.lang.Integer">
+            <column name="total_quantity_available" />
+        </property>
+    </class>
+</hibernate-mapping>

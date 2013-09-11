@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 9, 2013 3:45:53 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.seascape.roomstar.hibernate.mappings.RoomAmentity" table="room_amentity" catalog="rstar_dev">
+        <id name="roomAmentityId" type="java.lang.Long">
+            <column name="room_amentity_id" />
+            <generator class="identity" />
+        </id>
+        <property name="roomInventoryId" type="long">
+            <column name="room_inventory_id" not-null="true" />
+        </property>
+        <property name="amentityId" type="long">
+            <column name="amentity_id" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

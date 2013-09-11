@@ -39,5 +39,12 @@
 	<classpathentry kind="lib" path="C:/development/workspace/roomstar/WebContent/WEB-INF/lib/org-apache-commons-logging.jar"/>
 	<classpathentry kind="lib" path="C:/development/workspace/roomstar/WebContent/WEB-INF/lib/servlet-api.jar"/>
 	<classpathentry kind="lib" path="C:/development/workspace/roomstar/WebContent/WEB-INF/lib/sqljdbc4.jar"/>
+	<classpathentry kind="lib" path="C:/development/workspace/roomstar_1_0/WebContent/WEB-INF/lib/spring-security-config-3.2.0.RC1.jar"/>
+	<classpathentry kind="lib" path="C:/development/workspace/roomstar_1_0/WebContent/WEB-INF/lib/spring-security-core-3.2.0.RC1.jar"/>
+	<classpathentry kind="lib" path="C:/development/workspace/roomstar_1_0/WebContent/WEB-INF/lib/spring-security-web-3.2.0.RC1.jar"/>
+	<classpathentry kind="lib" path="C:/development/spring-3.0.0 jars/org.springframework.web.portlet-3.0.1.RELEASE-A.jar"/>
+	<classpathentry kind="lib" path="C:/development/spring-3.0.0 jars/org.springframework.web.servlet-3.0.1.RELEASE-A.jar"/>
+	<classpathentry kind="lib" path="C:/development/spring-3.0.0 jars/org.springframework.web.struts-3.0.1.RELEASE-A.jar"/>
+	<classpathentry kind="lib" path="C:/development/spring-3.0.0 jars/org.springframework.web-3.0.1.RELEASE-A.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -4,10 +4,10 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/rstar_dev?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/rstar_dev?autoReconnect=true&amp;zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">admin</property>
-    
-    <mapping resource="RoomType.hbm.xml"/>
+    <property name="hibernate.connection.password">admin</property>     
+    <mapping resource="com/seascape/roomstar/hibernate/mappings/RoomType.hbm.xml"/>
+    <mapping resource="com/seascape/roomstar/hibernate/mappings/RateType.hbm.xml"/> 
   </session-factory>
 </hibernate-configuration>

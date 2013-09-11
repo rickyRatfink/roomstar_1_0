@@ -1,5 +1,6 @@
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
+<%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>  
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -62,15 +63,24 @@ body {
    height: 20px;
 }
 
-#td {
-}
-.version {
-	font: .75em Arial;
-	color: #969698;
-	text-align:right;
+#errors {
+	font: 1.10em Arial;
+	color: #c30923;
+	text-align:left;
 	padding-right:10px;
 	vertical-align:top;
 }
+
+#td {
+}
+.errors {
+	font: .98em Arial;
+	color: #c30923;
+	text-align:left;
+	padding-right:10px;
+	vertical-align:top;
+}
+
 .loginTitle {
 	font: .85em verdana;
 	font-weight:none;
@@ -138,6 +148,9 @@ body {
             		Enter your username and password to access the system.  Please contact
             		your system administrator if you have problems accessing your account.</br>
             	</td>
+            </tr>
+            <tr>
+            	<td colspan="2" style="padding-left:25px;"><div id="errors"><html:errors/></div></td>
             </tr>
 			<tr>
             	<td class="fieldTitle" colspan="2">username</td>

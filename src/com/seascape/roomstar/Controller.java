@@ -1,7 +1,8 @@
 package com.seascape.roomstar;
 
-import com.seascape.roomstar.domain.RoomType;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -11,14 +12,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.seascape.roomstar.domain.RateType;
+import com.seascape.roomstar.domain.RoomType;
+import com.seascape.roomstar.hibernate.dao.RateTypeDao;
 import com.seascape.roomstar.hibernate.dao.RoomTypeDao;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import com.seascape.util.Validator;
 
 public class Controller extends HttpServlet {
 
 	private String URL = "";
+	private Validator v = new Validator();
 	private final static Logger LOGGER = Logger.getLogger(Controller.class
 			.getName());
 
@@ -27,11 +30,14 @@ public class Controller extends HttpServlet {
 		LOGGER.setLevel(Level.SEVERE);
 		HttpSession session = request.getSession(true);
 
+		 if (!v.isAuthenticated(request))		
+			 URL="login.jsp";
+		 
 		try {
 			String action = request.getParameter("action");
 			this.loadDropDownList(session);
 
-			if ("Walk In".equals(action)) 
+			if ("WalkIn".equals(action)) 
 				URL = "pages/frontDesk/walkIn.jsp";
 			else if ("Reservations".equals(action))
 				URL = "pages/frontDesk/reservation.jsp";
@@ -50,12 +56,19 @@ public class Controller extends HttpServlet {
 		doGet(req, resp);
 	}
         
-        private void loadDropDownList(HttpSession session) {
-            
+        private void loadDropDownList(HttpSession session) {            
+        	
+        	//Load Room Types
             RoomTypeDao dao = new RoomTypeDao();
             List<RoomType> list = new ArrayList<RoomType>();
             list=dao.listRoomTypes();
             session.setAttribute("ddl_roomType", list);
+       
+            RateTypeDao dao1 = new RateTypeDao();
+            List<RateType> list1 = new ArrayList<RateType>();
+            list1=dao1.listRateTypes();
+            session.setAttribute("ddl_rateType", list1);
+       
         }
 
 }

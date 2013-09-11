@@ -3,7 +3,7 @@
 				<div id="boxMenuHeader">Front Office</div>
 					<div id="boxSubMenuHeader">Reservations</div>
 						<div id="boxSubMenuItem">
-								<img src="<%=request.getContextPath()%>/images/star_bullet.png"/><a href="<%=request.getContextPath()%>/controller?action=Walk In">Walk In</a></br>
+								<img src="<%=request.getContextPath()%>/images/star_bullet.png"/><a href="<%=request.getContextPath()%>/controller?action=WalkIn">Walk In</a></br>
 								<img src="<%=request.getContextPath()%>/images/star_bullet.png"/><a href="<%=request.getContextPath()%>/controller?action=Reservations">Reservations</a></br>
 								<img src="<%=request.getContextPath()%>/images/star_bullet.png"/><a href="<%=request.getContextPath()%>/controller?action=Folio">Guest Folio</a></br>
 						        <img src="<%=request.getContextPath()%>/images/star_bullet.png"/>View/Print Folio</br>

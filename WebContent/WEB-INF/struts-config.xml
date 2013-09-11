@@ -8,6 +8,7 @@
 <struts-config> 
     <form-beans>
         <form-bean name="loginForm" type="com.seascape.roomstar.struts.form.LoginForm"></form-bean>
+        <form-bean name="walkInForm" type="com.seascape.roomstar.struts.form.WalkInForm"></form-bean>
     </form-beans>
     
     <global-exceptions>
@@ -16,15 +17,26 @@
     <global-forwards>
         <forward name="welcome"  path="/Welcome.do"/>
         <forward name="error"  path="/Error.do"/>
+        <forward name="authenticate"  path="/login.jsp"/>
     </global-forwards>
 
     <action-mappings>
         <action path="/Welcome" forward="/login.jsp"/>
         <action path="/Error" forward="/error.jsp"/>
-        
-         <action name="loginForm" path="/Login" type="com.seascape.roomstar.struts.action.LoginAction" scope="request" input="/login.jsp">
-                <forward name="failure" path="/error.jsp" redirect="true"/>
+         
+         <action name="loginForm" path="/Login" type="com.seascape.roomstar.struts.action.LoginAction" scope="request" input="/login.jsp" 
+             validate="true">
+                 <forward name="success" path="/index.jsp" redirect="true"/>
+                 <forward name="failure" path="/loginError.jsp" redirect="true"/>
+                 <forward name="error" path="/pages/error.jsp" redirect="true"/>               
+         </action>
+         
+         <action name="walkInForm" path="/WalkIn" type="com.seascape.roomstar.struts.action.WalkInAction" scope="request" input="/pages/frontDesk/walkIn.jsp"
+             validate="true">
                 <forward name="success" path="/index.jsp" redirect="true"/>
+                <forward name="failure" path="/pages/frontDesk/walkIn.jsp" redirect="true"/>
+                <forward name="error" path="/pages/error.jsp" redirect="true"/>
+                
          </action>
         
     </action-mappings>

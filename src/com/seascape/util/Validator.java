@@ -1,15 +1,13 @@
 package com.seascape.util;
 
-import java.security.Key;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.spec.SecretKeySpec;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 public class Validator {
 
@@ -183,7 +181,16 @@ public class Validator {
 
 	}
 
-	
+	public boolean isAuthenticated(HttpServletRequest request) {
+		HttpSession session = request.getSession(true);
+		boolean authenticated=false;
+		String flag = (String)session.getAttribute("authenticated");
+		
+		if ("YES".equals(flag))
+			return true;
+		else 
+			return false;
+	}
 	/*
 	  public static String decryptSsn(String base64) {
 		       String clearSsn = base64;

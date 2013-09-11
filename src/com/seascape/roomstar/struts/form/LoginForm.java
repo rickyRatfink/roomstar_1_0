@@ -1,6 +1,11 @@
 package com.seascape.roomstar.struts.form;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
 
 public class LoginForm  extends ActionForm {
 
@@ -20,5 +25,14 @@ public class LoginForm  extends ActionForm {
 		this.password = password;
 	}
 	
-	
+	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
+		  ActionErrors errors = new ActionErrors();
+		  if ((username==null) || (username.length() < 1)) 
+		      errors.add("",new ActionMessage("errors.required","username"));
+		  if ((password==null) || (password.length() < 1)) 
+		      errors.add("", new ActionMessage("errors.required","password"));
+		  
+		  	 
+		  return errors;
+		}
 }

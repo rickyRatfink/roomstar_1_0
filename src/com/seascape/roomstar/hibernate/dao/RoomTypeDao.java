@@ -19,24 +19,25 @@ public class RoomTypeDao {
 
 	private static SessionFactory factory;
 	private final static Logger LOGGER = Logger.getLogger(RoomTypeDao.class.getName());
-
-	/*
+	private static Session session;
+	
 	public RoomTypeDao() {
+		
+		LOGGER.setLevel(Level.INFO);
+		   
 		try{
-			factory = new Configuration().configure().buildSessionFactory();
+			session = HibernateUtil.openSession();
 			}catch (Throwable ex) {
 			System.err.println("Failed to create sessionFactory object." + ex);
 			throw new ExceptionInInitializerError(ex);
 			}
-	}*/
+	}
 	
 	
 	public List listRoomTypes() {
 		LOGGER.setLevel(Level.INFO);
 	    List<RoomType> list = new ArrayList<RoomType>();
-	    //Session session = factory.openSession();
-        Session session = HibernateUtil.openSession();
-        Transaction tx = null;        
+	    Transaction tx = null;        
         try {
             tx = session.getTransaction();
             tx.begin();
@@ -56,35 +57,10 @@ public class RoomTypeDao {
             session.close();
         }
         return list;
-	}
-	/* Method to READ all the types 
-	public List listRoomTypes( ){
-	LOGGER.setLevel(Level.SEVERE);
-	Session session = factory.openSession();
-	Transaction tx = null;
-	List list = null;
-	try{
-	tx = session.beginTransaction();
-	list = session.createQuery("FROM RoomType").list();
-	for (Iterator iterator =
-	list.iterator(); iterator.hasNext();){
-	RoomType type = (RoomType) iterator.next();
-	}
-	tx.commit();
-	}catch (HibernateException e) {
-	if (tx!=null) tx.rollback();
-	e.printStackTrace();
-	}finally {
-	session.close();
-	}
-	
-	return list;
-	}*/
-	
+	}	
 	
 	/* Method to INSERT RoomType */
 	public Long addRoomType(RoomType obj){
-		Session session = factory.openSession();
 		Transaction tx = null;
 		Long key = null;
 		try{
@@ -103,7 +79,6 @@ public class RoomTypeDao {
 
 	/* Method to UPDATE RoomType */
 	public void updateRoomType(RoomType obj){
-		Session session = factory.openSession();
 		Transaction tx = null;
 		try{
 		tx = session.beginTransaction();
@@ -122,7 +97,6 @@ public class RoomTypeDao {
 	
 	/* Method to DELETE RoomType */
 	public void deleteRoomType(Integer key){
-		Session session = factory.openSession();
 		Transaction tx = null;
 		
 		try{

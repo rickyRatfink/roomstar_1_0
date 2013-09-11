@@ -1,3 +1,6 @@
+<%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
+<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
+
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Iterator" %>
 <%@ page import="com.seascape.roomstar.domain.RoomType" %>
@@ -16,7 +19,7 @@
 					&nbsp;&nbsp;Home > Front Office > Walk In
 				</div>
 				
-				
+				<html:form action="/WalkIn">
 				<table width="470" cellpadding="0" cellspacing="0" border="0">
 				<tr>
 				<td>
@@ -27,6 +30,8 @@
 						</tr>
 						</table>
 						
+						<jsp:include page="../../includes/messages.jsp" flush="true"/>
+						
 						<table width="450" cellpadding="0" cellspacing="0" border="0">
 						<tr>
 							<td colspan="2" class="header2"><img src="<%=request.getContextPath()%>/images/star_bullet.png"/>Check In Date</td>
@@ -36,6 +41,7 @@
 								<div id="field">
 									<input type="text" name="checkinDate" value="" size="20" maxlength="13" class="tcal"/>
 									&nbsp;<b><i>for</i></b>&nbsp;
+									
 									<select name="nights" class="select">
 										<option value="1">1 NIGHT</option>
 										<option value="2">2 NIGHTS</option>
@@ -55,18 +61,16 @@
 						<tr>
 							<td valign="top">
 								<div id="field">
-								<% list = (List)session.getAttribute("ddl_roomType"); 
-                                                                    System.out.println("list>"+list);
-                                                                %>
-									<select name="roomType" class="select">
-									<%
-									for (Iterator iterator =
-										list.iterator(); iterator.hasNext();){
-										RoomType type = (RoomType) iterator.next();
-									%>
-										<option value="<%=type.getRoomTypeId()%>"><%=type.getName()%></option>
-									<% } %>
-									</select>
+								
+								<html:select property="customer.rewardsNumber" styleClass="select" >
+									<html:optionsCollection name="ddl_roomType" value="roomTypeId" label="name" />
+								</html:select> 
+								
+								<html:select property="customer.rewardsNumber" styleClass="select" >
+									<html:optionsCollection name="ddl_rateType" value="rateTypeId" label="name" />
+								</html:select> 
+								
+								
 								</div>
 							</td>
 							<td valign="center" align="left"><a href="#"><img src="<%=request.getContextPath() %>/images/lookup.png" alt="Check Availability" title="Check Availability" /></a></td>
@@ -85,7 +89,7 @@
 							<td><div id="field">Suffix</div></td>
 						</tr> 
 						<tr>
-							<td><div id="field"><input type="text" name="lastname" value="" size="30" maxlength="30" class="textbox"/></div></td>
+							<td><div id="field"><html:text property="customer.lastname" size="30" maxlength="30" styleClass="textbox"></html:text></div></td>
 							<td><div id="field"><input type="text" name="firstname" value="" size="30" maxlength="30" class="textbox"/></div></td>
 							<td><div id="field"><input type="text" name="suffix" value="" size="5" maxlength="5" class="textbox"/></div></td>
 							<td valign="top" align="left"><a href="#"><img src="<%=request.getContextPath() %>/images/lookup.png" alt="Search For Guest Profile" title="Search For Guest Profile" /></a></td>
@@ -243,7 +247,7 @@
 					</td>
 				</tr>
 				</table>	
-				
+				</html:form>
 			</div>
 		</td>
 	</tr>

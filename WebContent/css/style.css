@@ -523,7 +523,7 @@ a#page-print {
 	margin-bottom:5px;
 	background:#f5faff;
 }
-textarea#styled {
+.textarea {
 	width: 490px;
 	height: 70px;
 	border: 1px solid #193a96;

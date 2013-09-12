@@ -1,25 +1,28 @@
 package com.seascape.roomstar.hibernate.dao;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.hibernate.HibernateException; 
+
+import com.seascape.roomstar.hibernate.HibernateUtil;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
 
-import com.seascape.roomstar.domain.RateType;
-import com.seascape.roomstar.hibernate.HibernateUtil;
+import com.seascape.roomstar.domain.AddressType;
 
-public class RateTypeDao {
+public class AddressTypeDao {
 
 	private static SessionFactory factory;
-	private final static Logger LOGGER = Logger.getLogger(RateTypeDao.class.getName());
+	private final static Logger LOGGER = Logger.getLogger(AddressTypeDao.class.getName());
 	private static Session session;
-
-	public RateTypeDao() {
+	
+	public AddressTypeDao() {
 		
 		LOGGER.setLevel(Level.INFO);
 		   
@@ -32,15 +35,15 @@ public class RateTypeDao {
 	}
 	
 	
-	public List listRateTypes() {
+	public List listAddressTypes() {
 		LOGGER.setLevel(Level.INFO);
-	    List<RateType> list = new ArrayList<RateType>();
+	    List<AddressType> list = new ArrayList<AddressType>();
 	    Transaction tx = null;        
         try {
             tx = session.getTransaction();
             tx.begin();
-            list = session.createQuery("FROM RateType").list();                       
-        	
+            list = session.createQuery("FROM AddressType").list();                       
+        	tx.commit();
         } catch (Exception e) {
             if (tx != null) {
                 tx.rollback();
@@ -52,8 +55,8 @@ public class RateTypeDao {
         return list;
 	}	
 	
-	/* Method to INSERT RateType */
-	public Long addRateType(RateType obj){
+	/* Method to INSERT AddressType */
+	public Long addAddressType(AddressType obj){
 		Transaction tx = null;
 		Long key = null;
 		try{
@@ -70,8 +73,8 @@ public class RateTypeDao {
 		}
 	
 
-	/* Method to UPDATE RateType */
-	public void updateRateType(RateType obj){
+	/* Method to UPDATE AddressType */
+	public void updateAddressType(AddressType obj){
 		Transaction tx = null;
 		try{
 		tx = session.beginTransaction();
@@ -88,14 +91,14 @@ public class RateTypeDao {
 		}
 		}
 	
-	/* Method to DELETE RateType */
-	public void deleteRateType(Integer key){
+	/* Method to DELETE AddressType */
+	public void deleteAddressType(Integer key){
 		Transaction tx = null;
 		
 		try{
 			tx = session.beginTransaction();
-			RateType obj =
-			(RateType)session.get(RateType.class, key);
+			AddressType obj =
+			(AddressType)session.get(AddressType.class, key);
 			session.delete(obj);
 			tx.commit();
 			}catch (HibernateException e) {

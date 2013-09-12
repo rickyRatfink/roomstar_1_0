@@ -6,13 +6,13 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.app.util.HibernateUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import com.seascape.roomstar.domain.Customer;
+import com.seascape.roomstar.hibernate.HibernateUtil;
 
 public class CustomerDao {
 	private static SessionFactory factory;

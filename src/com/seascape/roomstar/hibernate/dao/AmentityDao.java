@@ -1,25 +1,28 @@
 package com.seascape.roomstar.hibernate.dao;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.hibernate.HibernateException; 
+
+import com.seascape.roomstar.hibernate.HibernateUtil;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
 
-import com.seascape.roomstar.domain.RateType;
-import com.seascape.roomstar.hibernate.HibernateUtil;
+import com.seascape.roomstar.domain.Amentity;
 
-public class RateTypeDao {
+public class AmentityDao {
 
 	private static SessionFactory factory;
-	private final static Logger LOGGER = Logger.getLogger(RateTypeDao.class.getName());
+	private final static Logger LOGGER = Logger.getLogger(AmentityDao.class.getName());
 	private static Session session;
-
-	public RateTypeDao() {
+	
+	public AmentityDao() {
 		
 		LOGGER.setLevel(Level.INFO);
 		   
@@ -32,15 +35,15 @@ public class RateTypeDao {
 	}
 	
 	
-	public List listRateTypes() {
+	public List listAmentitys() {
 		LOGGER.setLevel(Level.INFO);
-	    List<RateType> list = new ArrayList<RateType>();
+	    List<Amentity> list = new ArrayList<Amentity>();
 	    Transaction tx = null;        
         try {
             tx = session.getTransaction();
             tx.begin();
-            list = session.createQuery("FROM RateType").list();                       
-        	
+            list = session.createQuery("FROM Amentity").list();                       
+        	tx.commit();
         } catch (Exception e) {
             if (tx != null) {
                 tx.rollback();
@@ -52,8 +55,8 @@ public class RateTypeDao {
         return list;
 	}	
 	
-	/* Method to INSERT RateType */
-	public Long addRateType(RateType obj){
+	/* Method to INSERT Amentity */
+	public Long addAmentity(Amentity obj){
 		Transaction tx = null;
 		Long key = null;
 		try{
@@ -70,8 +73,8 @@ public class RateTypeDao {
 		}
 	
 
-	/* Method to UPDATE RateType */
-	public void updateRateType(RateType obj){
+	/* Method to UPDATE Amentity */
+	public void updateAmentity(Amentity obj){
 		Transaction tx = null;
 		try{
 		tx = session.beginTransaction();
@@ -88,14 +91,14 @@ public class RateTypeDao {
 		}
 		}
 	
-	/* Method to DELETE RateType */
-	public void deleteRateType(Integer key){
+	/* Method to DELETE Amentity */
+	public void deleteAmentity(Integer key){
 		Transaction tx = null;
 		
 		try{
 			tx = session.beginTransaction();
-			RateType obj =
-			(RateType)session.get(RateType.class, key);
+			Amentity obj =
+			(Amentity)session.get(Amentity.class, key);
 			session.delete(obj);
 			tx.commit();
 			}catch (HibernateException e) {

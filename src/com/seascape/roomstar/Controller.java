@@ -12,10 +12,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.seascape.roomstar.domain.AddressType;
+import com.seascape.roomstar.domain.Amentity;
+import com.seascape.roomstar.domain.Country;
 import com.seascape.roomstar.domain.RateType;
 import com.seascape.roomstar.domain.RoomType;
+import com.seascape.roomstar.domain.State;
+import com.seascape.roomstar.hibernate.dao.AddressTypeDao;
+import com.seascape.roomstar.hibernate.dao.AmentityDao;
+import com.seascape.roomstar.hibernate.dao.CountryDao;
 import com.seascape.roomstar.hibernate.dao.RateTypeDao;
 import com.seascape.roomstar.hibernate.dao.RoomTypeDao;
+import com.seascape.roomstar.hibernate.dao.StateDao;
 import com.seascape.util.Validator;
 
 public class Controller extends HttpServlet {
@@ -63,11 +71,31 @@ public class Controller extends HttpServlet {
             List<RoomType> list = new ArrayList<RoomType>();
             list=dao.listRoomTypes();
             session.setAttribute("ddl_roomType", list);
-       
+       		
             RateTypeDao dao1 = new RateTypeDao();
             List<RateType> list1 = new ArrayList<RateType>();
             list1=dao1.listRateTypes();
             session.setAttribute("ddl_rateType", list1);
+            
+            AddressTypeDao dao2 = new AddressTypeDao();
+            List<AddressType> list2 = new ArrayList<AddressType>();
+            list2=dao2.listAddressTypes();
+            session.setAttribute("ddl_addressType", list2);
+            
+            StateDao dao3 = new StateDao();
+            List<State> list3 = new ArrayList<State>();
+            list3=dao3.listStates();
+            session.setAttribute("ddl_state", list3);
+            
+            CountryDao dao4 = new CountryDao();
+            List<Country> list4 = new ArrayList<Country>();
+            list4=dao4.listCountrys();
+            session.setAttribute("ddl_country", list4);
+            
+            AmentityDao dao5 = new AmentityDao();
+            List<Amentity> list5 = new ArrayList<Amentity>();
+            list5=dao5.listAmentitys();
+            session.setAttribute("ddl_amentity", list5);
        
         }
 

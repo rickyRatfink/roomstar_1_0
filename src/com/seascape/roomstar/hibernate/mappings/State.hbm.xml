@@ -3,19 +3,16 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Sep 12, 2013 12:46:51 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.seascape.roomstar.domain.Employee" table="employee" catalog="rstar_dev">
+    <class name="com.seascape.roomstar.domain.State" table="state" catalog="rstar_dev">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
             <generator class="identity" />
         </id>
-        <property name="firstName" type="string">
-            <column name="first_name" length="20" />
+        <property name="label" type="string">
+            <column name="label" length="40" not-null="true" />
         </property>
-        <property name="lastName" type="string">
-            <column name="last_name" length="20" />
-        </property>
-        <property name="salary" type="java.lang.Integer">
-            <column name="salary" />
+        <property name="value" type="string">
+            <column name="value" length="2" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

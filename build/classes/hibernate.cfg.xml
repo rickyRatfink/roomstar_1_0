@@ -7,7 +7,14 @@
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/rstar_dev?autoReconnect=true&amp;zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">admin</property>     
-    <mapping resource="com/seascape/roomstar/hibernate/mappings/RoomType.hbm.xml"/>
+    <mapping resource="com/seascape/roomstar/hibernate/mappings/RoomType.hbm.xml"/> 
     <mapping resource="com/seascape/roomstar/hibernate/mappings/RateType.hbm.xml"/> 
+    <mapping resource="com/seascape/roomstar/hibernate/mappings/AddressType.hbm.xml"/> 
+    <mapping resource="com/seascape/roomstar/hibernate/mappings/State.hbm.xml"/> 
+    <mapping resource="com/seascape/roomstar/hibernate/mappings/Country.hbm.xml"/> 
+    <mapping resource="com/seascape/roomstar/hibernate/mappings/Amentity.hbm.xml"/> 
+    <mapping resource="com/seascape/roomstar/hibernate/mappings/Customer.hbm.xml"/> 
+    <mapping resource="com/seascape/roomstar/hibernate/mappings/Address.hbm.xml"/> 
+    <mapping resource="com/seascape/roomstar/hibernate/mappings/Reservation.hbm.xml"/> 
   </session-factory>
 </hibernate-configuration>

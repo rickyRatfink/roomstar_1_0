@@ -3,13 +3,13 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Sep 12, 2013 12:46:51 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.seascape.roomstar.domain.RoomStatusType" table="room_status_type" catalog="rstar_dev">
-        <id name="roomStatusTypeId" type="java.lang.Long">
-            <column name="room_status_type_id" />
+    <class name="com.seascape.roomstar.domain.AddressType" table="address_type" catalog="rstar_dev">
+        <id name="addressTypeId" type="java.lang.Long">
+            <column name="address_type_id" />
             <generator class="identity" />
         </id>
-        <property name="name" type="string">
-            <column name="name" length="40" not-null="true" />
+        <property name="addressTypeDesc" type="string">
+            <column name="address_type_desc" length="20" />
         </property>
     </class>
 </hibernate-mapping>

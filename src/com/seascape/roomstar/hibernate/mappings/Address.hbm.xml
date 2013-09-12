@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 12, 2013 12:46:51 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.seascape.roomstar.domain.Address" table="address" catalog="rstar_dev">
+        <id name="addressId" type="java.lang.Long">
+            <column name="address_id" />
+            <generator class="identity" />
+        </id>
+        <property name="addressTypeId" type="long">
+            <column name="address_type_id" not-null="true" />
+        </property>
+        <property name="customerId" type="long">
+            <column name="customer_id" not-null="true" />
+        </property>
+        <property name="line1" type="string">
+            <column name="line1" length="60" not-null="true" />
+        </property>
+        <property name="line2" type="string">
+            <column name="line2" length="60" />
+        </property>
+        <property name="co" type="string">
+            <column name="co" length="40" />
+        </property>
+        <property name="city" type="string">
+            <column name="city" length="30" not-null="true" />
+        </property>
+        <property name="state" type="string">
+            <column name="state" length="30" not-null="true" />
+        </property>
+        <property name="zipcode" type="string">
+            <column name="zipcode" length="10" />
+        </property>
+        <property name="country" type="string">
+            <column name="country" length="50" />
+        </property>
+        <property name="orgName" type="string">
+            <column name="org_name" length="50" />
+        </property>
+        <property name="contactPhone" type="string">
+            <column name="contact_phone" length="20" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="60" />
+        </property>
+    </class>
+</hibernate-mapping>

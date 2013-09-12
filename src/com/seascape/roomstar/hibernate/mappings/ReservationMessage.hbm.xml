@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 12, 2013 12:46:51 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.seascape.roomstar.domain.ReservationMessage" table="reservation_message" catalog="rstar_dev">
+        <id name="reservationMessageId" type="java.lang.Long">
+            <column name="reservation_message_id" />
+            <generator class="identity" />
+        </id>
+        <property name="reservationId" type="long">
+            <column name="reservation_id" not-null="true" />
+        </property>
+        <property name="message" type="string">
+            <column name="message" length="16277215" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -33,7 +33,7 @@
          
          <action name="walkInForm" path="/WalkIn" type="com.seascape.roomstar.struts.action.WalkInAction" scope="request" input="/pages/frontDesk/walkIn.jsp"
              validate="true">
-                <forward name="success" path="/index.jsp" redirect="true"/>
+                <forward name="success" path="/pages/frontDesk/walkIn.jsp" redirect="true"/>
                 <forward name="failure" path="/pages/frontDesk/walkIn.jsp" redirect="true"/>
                 <forward name="error" path="/pages/error.jsp" redirect="true"/>
                 

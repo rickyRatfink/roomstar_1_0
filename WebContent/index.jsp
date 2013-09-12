@@ -1,6 +1,5 @@
 <jsp:include page="includes/header.jsp"/>
 
-
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
 	<tr>
 		<td class="mainBkgr">
@@ -16,7 +15,7 @@
 				<table width="100%" height="550" cellpadding="0" cellspacing="0" border="0">
 				<tr>
 				<td width="100%" background="<%=request.getContextPath()%>/images/courtyard-by-marriott.jpg" valign="top">
-					<h5>Hotel Statistics For <%=new java.util.Date() %></h5>	
+					<jsp:include page="includes/messages.jsp" flush="true"/>	
 				</td>
 				</tr>
 				</table>	
@@ -25,8 +24,6 @@
 		</td>
 	</tr>
 </table>
-
-
 
 <jsp:include page="includes/footer.jsp"/>
 

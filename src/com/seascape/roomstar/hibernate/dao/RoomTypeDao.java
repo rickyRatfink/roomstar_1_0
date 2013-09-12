@@ -6,12 +6,11 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.app.util.HibernateUtil;
+import com.seascape.roomstar.hibernate.HibernateUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 
 import com.seascape.roomstar.domain.RoomType;
 
@@ -21,7 +20,7 @@ public class RoomTypeDao {
 	private final static Logger LOGGER = Logger.getLogger(RoomTypeDao.class.getName());
 	private static Session session;
 	
-	public RoomTypeDao() {
+	public RoomTypeDao() { 
 		
 		LOGGER.setLevel(Level.INFO);
 		   
@@ -42,12 +41,7 @@ public class RoomTypeDao {
             tx = session.getTransaction();
             tx.begin();
             list = session.createQuery("FROM RoomType").list();                       
-        	for (Iterator iterator =
-        			list.iterator(); iterator.hasNext();){
-        			RoomType type = (RoomType) iterator.next();
-                                System.out.println("roomType="+type.getName());
-        			}
-        			tx.commit();
+        	tx.commit();
         } catch (Exception e) {
             if (tx != null) {
                 tx.rollback();

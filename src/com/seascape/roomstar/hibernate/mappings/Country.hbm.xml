@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 12, 2013 12:46:51 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.seascape.roomstar.domain.Country" table="country" catalog="rstar_dev">
+        <id name="iso" type="string">
+            <column name="iso" length="2" />
+            <generator class="assigned" />
+        </id>
+        <property name="label" type="string">
+            <column name="label" length="80" not-null="true" />
+        </property>
+        <property name="printableName" type="string">
+            <column name="printable_name" length="80" not-null="true" />
+        </property>
+        <property name="iso3" type="string">
+            <column name="iso3" length="3" />
+        </property>
+        <property name="numcode" type="java.lang.Short">
+            <column name="numcode" />
+        </property>
+    </class>
+</hibernate-mapping>

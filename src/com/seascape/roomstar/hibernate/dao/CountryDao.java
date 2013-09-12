@@ -1,25 +1,26 @@
 package com.seascape.roomstar.hibernate.dao;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.hibernate.HibernateException; 
+import com.seascape.roomstar.hibernate.HibernateUtil;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-import com.seascape.roomstar.domain.RateType;
-import com.seascape.roomstar.hibernate.HibernateUtil;
+import com.seascape.roomstar.domain.Country;
 
-public class RateTypeDao {
+public class CountryDao {
 
 	private static SessionFactory factory;
-	private final static Logger LOGGER = Logger.getLogger(RateTypeDao.class.getName());
+	private final static Logger LOGGER = Logger.getLogger(CountryDao.class.getName());
 	private static Session session;
-
-	public RateTypeDao() {
+	
+	public CountryDao() { 
 		
 		LOGGER.setLevel(Level.INFO);
 		   
@@ -32,15 +33,15 @@ public class RateTypeDao {
 	}
 	
 	
-	public List listRateTypes() {
+	public List listCountrys() {
 		LOGGER.setLevel(Level.INFO);
-	    List<RateType> list = new ArrayList<RateType>();
+	    List<Country> list = new ArrayList<Country>();
 	    Transaction tx = null;        
         try {
             tx = session.getTransaction();
             tx.begin();
-            list = session.createQuery("FROM RateType").list();                       
-        	
+            list = session.createQuery("FROM Country").list();                       
+        	tx.commit();
         } catch (Exception e) {
             if (tx != null) {
                 tx.rollback();
@@ -52,8 +53,8 @@ public class RateTypeDao {
         return list;
 	}	
 	
-	/* Method to INSERT RateType */
-	public Long addRateType(RateType obj){
+	/* Method to INSERT Country */
+	public Long addCountry(Country obj){
 		Transaction tx = null;
 		Long key = null;
 		try{
@@ -70,8 +71,8 @@ public class RateTypeDao {
 		}
 	
 
-	/* Method to UPDATE RateType */
-	public void updateRateType(RateType obj){
+	/* Method to UPDATE Country */
+	public void updateCountry(Country obj){
 		Transaction tx = null;
 		try{
 		tx = session.beginTransaction();
@@ -88,14 +89,14 @@ public class RateTypeDao {
 		}
 		}
 	
-	/* Method to DELETE RateType */
-	public void deleteRateType(Integer key){
+	/* Method to DELETE Country */
+	public void deleteCountry(Integer key){
 		Transaction tx = null;
 		
 		try{
 			tx = session.beginTransaction();
-			RateType obj =
-			(RateType)session.get(RateType.class, key);
+			Country obj =
+			(Country)session.get(Country.class, key);
 			session.delete(obj);
 			tx.commit();
 			}catch (HibernateException e) {

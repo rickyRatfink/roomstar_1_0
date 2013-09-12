@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 12, 2013 12:46:51 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.seascape.roomstar.domain.Reservation" table="reservation" catalog="rstar_dev">
+        <id name="reservationId" type="java.lang.Long">
+            <column name="reservation_id" />
+            <generator class="identity" />
+        </id>
+        <property name="customerId" type="long">
+            <column name="customer_id" not-null="true" />
+        </property>
+        <property name="roomTypeId" type="long">
+            <column name="room_type_id" not-null="true" />
+        </property>
+        <property name="rateTypeId" type="long">
+            <column name="rate_type_id" not-null="true" />
+        </property>
+        <property name="voucherCode" type="string">
+            <column name="voucher_code" length="20" />
+        </property>
+        <property name="rewardsNumber" type="string">
+            <column name="rewards_number" length="20" />
+        </property>
+        <property name="notes" type="string">
+            <column name="notes" length="16277215" />
+        </property>
+        <property name="creationDate" type="string">
+            <column name="creation_date" length="20" />
+        </property>
+        <property name="createdBy" type="string">
+            <column name="created_by" length="20" />
+        </property>
+        <property name="lastUpdatedDate" type="string">
+            <column name="last_updated_date" length="20" />
+        </property>
+        <property name="lastUpdatedBy" type="string">
+            <column name="last_updated_by" length="20" />
+        </property>
+        <property name="checkInDate" type="string">
+            <column name="check_in_date" length="20" />
+        </property>
+        <property name="checkOutDate" type="string">
+            <column name="check_out_date" length="20" />
+        </property>
+        <property name="nights" type="java.lang.Integer">
+            <column name="nights" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 12, 2013 12:46:51 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.seascape.roomstar.domain.ReservationAmentity" table="reservation_amentity" catalog="rstar_dev">
+        <composite-id name="id" class="com.seascape.roomstar.domain.ReservationAmentityId">
+            <key-property name="reservationId" type="long">
+                <column name="reservation_id" />
+            </key-property>
+            <key-property name="amentityId" type="long">
+                <column name="amentity_id" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

@@ -1,21 +1,42 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Sep 12, 2013 12:46:51 PM by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated Sep 14, 2013 10:44:24 AM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="com.seascape.roomstar.domain.Employee" table="employee" catalog="rstar_dev">
-        <id name="id" type="java.lang.Integer">
-            <column name="id" />
-            <generator class="identity" />
+        <id name="employeeId" type="long">
+            <column name="employee_id" />
+            <generator class="assigned" />
         </id>
+        <property name="propertyId" type="long">
+            <column name="property_id" not-null="true" />
+        </property>
         <property name="firstName" type="string">
-            <column name="first_name" length="20" />
+            <column name="first_name" length="30" not-null="true" />
         </property>
         <property name="lastName" type="string">
-            <column name="last_name" length="20" />
+            <column name="last_name" length="30" not-null="true" />
         </property>
-        <property name="salary" type="java.lang.Integer">
-            <column name="salary" />
+        <property name="middleName" type="string">
+            <column name="middle_name" length="30" />
+        </property>
+        <property name="username" type="string">
+            <column name="username" length="20" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="20" not-null="true" />
+        </property>
+        <property name="creationDate" type="string">
+            <column name="creation_date" length="20" />
+        </property>
+        <property name="createdBy" type="string">
+            <column name="created_by" length="20" />
+        </property>
+        <property name="lastLogin" type="string">
+            <column name="last_login" length="20" />
+        </property>
+        <property name="roleId" type="java.lang.Long">
+            <column name="role_id" />
         </property>
     </class>
 </hibernate-mapping>

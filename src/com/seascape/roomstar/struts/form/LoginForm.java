@@ -7,29 +7,34 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 
+import com.seascape.roomstar.domain.Employee;
+import com.seascape.roomstar.domain.Role;
+
 public class LoginForm  extends ActionForm {
 
-	private String username=null;
-	private String password=null;
+	private Employee employee = new Employee();
+	private Role role = new Role();
 	
-	public String getUsername() {
-		return username;
+	public Employee getEmployee() {
+		return employee;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
 	}
-	public String getPassword() {
-		return password;
+	public Role getRole() {
+		return role;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+
+	public void setRole(Role role) {
+		this.role = role;
 	}
-	
+
 	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
 		  ActionErrors errors = new ActionErrors();
-		  if ((username==null) || (username.length() < 1)) 
+		  if ((this.employee.getUsername()==null) || (this.employee.getUsername().length() < 1)) 
 		      errors.add("",new ActionMessage("errors.required","username"));
-		  if ((password==null) || (password.length() < 1)) 
+		  if ((this.employee.getPassword()==null) || (this.employee.getPassword().length() < 1)) 
 		      errors.add("", new ActionMessage("errors.required","password"));
 		  
 		  	 

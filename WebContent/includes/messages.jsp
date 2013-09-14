@@ -44,6 +44,8 @@
 
 <% 
 	String display=(String)request.getAttribute("notifications");
+    if (display==null)
+    	display=(String)session.getAttribute("notifications");
 %>
 
 <% if ("error".equals(display)) { %>

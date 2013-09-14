@@ -109,6 +109,7 @@
 								<img src="<%=request.getContextPath()%>/images/star_bullet.png"/>Declined CC Report</br>
 						</div>
 
+				
 			</div>
 			</div>
 			
@@ -140,8 +141,20 @@
 						<div id="boxSubMenuItem">
 								<img src="<%=request.getContextPath()%>/images/star_bullet.png"/></br>
 						</div>
-					
-
+			</div>
+			</div>
+			
+			
+			<div id="Administration" style="position:absolute;top:114px;">
+			<div id="boxMenu">
+				<div id="boxMenuHeader">Administration</div>
+					<div id="boxSubMenuHeader">Property Configuration</div>
+						<div id="boxSubMenuItem">
+								<img src="<%=request.getContextPath()%>/images/star_bullet.png"/><a href="<%=request.getContextPath()%>/controller?action=config&entity=room">Rooms</a></br>
+								<img src="<%=request.getContextPath()%>/images/star_bullet.png"/><a href="<%=request.getContextPath()%>/controller?action=config&entity=roomType">Room Types</a></br>
+								<img src="<%=request.getContextPath()%>/images/star_bullet.png"/><a href="<%=request.getContextPath()%>/controller?action=config&entity=rateType">Rate Types</a></br>
+								<img src="<%=request.getContextPath()%>/images/star_bullet.png"/><a href="<%=request.getContextPath()%>/controller?action=config&entity=amentity">Amentities</a></br>
+						</div>
 			</div>
 			</div>
 			

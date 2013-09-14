@@ -24,6 +24,7 @@ import com.seascape.roomstar.hibernate.dao.CountryDao;
 import com.seascape.roomstar.hibernate.dao.RateTypeDao;
 import com.seascape.roomstar.hibernate.dao.RoomTypeDao;
 import com.seascape.roomstar.hibernate.dao.StateDao;
+import com.seascape.roomstar.struts.form.ConfigForm;
 import com.seascape.util.Validator;
 
 public class Controller extends HttpServlet {
@@ -43,14 +44,22 @@ public class Controller extends HttpServlet {
 		 
 		try {
 			String action = request.getParameter("action");
+			String entity = request.getParameter("entity");
 			this.loadDropDownList(session);
 
-			if ("WalkIn".equals(action)) 
-				URL = "pages/frontDesk/walkIn.jsp";
+			if ("config".equals(action)) {
+				if ("roomType".equals(entity)) 
+					URL = "pages/admin/configuration/roomType.jsp";
+				if ("rateType".equals(entity)) 
+					URL = "pages/admin/configuration/rateType.jsp";
+			} 
+			else if ("WalkIn".equals(action)) 
+					URL = "pages/frontDesk/walkIn.jsp";
 			else if ("Reservations".equals(action))
-				URL = "pages/frontDesk/reservation.jsp";
+					URL = "pages/frontDesk/reservation.jsp";
 			else if ("Folio".equals(action))
-				URL = "pages/frontDesk/folio.jsp";
+					URL = "pages/frontDesk/folio.jsp";
+			
 		} catch (Exception e) {
 			session.setAttribute("SYSTEM_ERR", e.getMessage());
 			LOGGER.log(Level.SEVERE,e.getMessage());

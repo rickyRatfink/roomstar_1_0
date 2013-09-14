@@ -1,6 +1,12 @@
+<%@page import="com.seascape.roomstar.domain.Role"%>
+<%@page import="com.seascape.roomstar.domain.Employee"%>
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>  
+<% 
+   Role role = (Role)session.getAttribute("role");
+   Employee employee = (Employee)session.getAttribute("employee");
+%>
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -38,6 +44,7 @@ if (sId=='Housekeeping') {
 	document.getElementById('SalesMarketing').style.visibility = "hidden";
 	document.getElementById('Inventory').style.visibility = "hidden";
 	document.getElementById('Reports').style.visibility = "hidden";
+	document.getElementById('Administration').style.visibility = "hidden";
 }
 if (sId=='Engineering') { 
 	document.getElementById('FrontOffice').style.visibility = "hidden";
@@ -48,6 +55,7 @@ if (sId=='Engineering') {
 	document.getElementById('SalesMarketing').style.visibility = "hidden";
 	document.getElementById('Inventory').style.visibility = "hidden";
 	document.getElementById('Reports').style.visibility = "hidden";
+	document.getElementById('Administration').style.visibility = "hidden";
 }
 if (sId=='HR') {
 	document.getElementById('FrontOffice').style.visibility = "hidden";
@@ -58,6 +66,7 @@ if (sId=='HR') {
 	document.getElementById('SalesMarketing').style.visibility = "hidden";
 	document.getElementById('Inventory').style.visibility = "hidden";
 	document.getElementById('Reports').style.visibility = "hidden";
+	document.getElementById('Administration').style.visibility = "hidden";
 }
 
 
@@ -70,6 +79,7 @@ if (sId=='HR') {
 	document.getElementById('SalesMarketing').style.visibility = "hidden";
 	document.getElementById('Inventory').style.visibility = "hidden";
 	document.getElementById('Reports').style.visibility = "hidden";
+	document.getElementById('Administration').style.visibility = "hidden";
 }
 if (sId=='Accounting') {
 	document.getElementById('FrontOffice').style.visibility = "hidden";
@@ -80,6 +90,7 @@ if (sId=='Accounting') {
 	document.getElementById('SalesMarketing').style.visibility = "hidden";
 	document.getElementById('Inventory').style.visibility = "hidden";
 	document.getElementById('Reports').style.visibility = "hidden";
+	document.getElementById('Administration').style.visibility = "hidden";
 }
 if (sId=='SalesMarketing') {
 	document.getElementById('FrontOffice').style.visibility = "hidden";
@@ -90,6 +101,7 @@ if (sId=='SalesMarketing') {
 	document.getElementById('SalesMarketing').style.visibility = "visible";
 	document.getElementById('Inventory').style.visibility = "hidden";
 	document.getElementById('Reports').style.visibility = "hidden";
+	document.getElementById('Administration').style.visibility = "hidden";
 }
 if (sId=='Inventory') {
 	document.getElementById('FrontOffice').style.visibility = "hidden";
@@ -110,6 +122,18 @@ if (sId=='Reports') {
 	document.getElementById('SalesMarketing').style.visibility = "hidden";
 	document.getElementById('Inventory').style.visibility = "hidden";
 	document.getElementById('Reports').style.visibility = "visible";
+	document.getElementById('Administration').style.visibility = "hidden";
+}
+if (sId=='Administration') {
+	document.getElementById('FrontOffice').style.visibility = "hidden";
+	document.getElementById('Housekeeping').style.visibility = "hidden";
+	document.getElementById('Engineering').style.visibility = "hidden";
+	document.getElementById('HR').style.visibility = "hidden";
+	document.getElementById('Accounting').style.visibility = "hidden";
+	document.getElementById('SalesMarketing').style.visibility = "hidden";
+	document.getElementById('Inventory').style.visibility = "hidden";
+	document.getElementById('Reports').style.visibility = "hidden";
+	document.getElementById('Administration').style.visibility = "visible";
 }
 
 /*
@@ -133,10 +157,13 @@ else {
 	<tr>
 	<td width="100%" background="<%=request.getContextPath() %>/images/footer_bg.png">
 		<div id="item">Property Name:&nbsp;&nbsp;&nbsp;</div><div id="itemValue">Courtyard By Marriott. 45th Street. WPB, FL</div>
-		<div id="item">User Name:&nbsp;&nbsp;&nbsp;</div><div id="itemValue">Administrator</div>
+		<div id="item">User Name:&nbsp;&nbsp;&nbsp;</div><div id="itemValue">
+			<%=employee.getUsername() %>
+		</div>
 		<div id="item">System Date:&nbsp;&nbsp;&nbsp;</div><div id="itemValue"><%= new java.util.Date() %></div>
 		<div id="item">Active Shift:&nbsp;&nbsp;&nbsp;</div><div id="itemValue">Mid Shift 3P-11P</div>
 	</td>
+	<td align="right" background="<%=request.getContextPath() %>/images/footer_bg.png"><a href="<%=request.getContextPath() %>/Login.do?action=logout" style="font: .70em bold 'Arial';'">[logout]</a>&nbsp;</td>
 	<td alight="right"  background="<%=request.getContextPath() %>/images/footer_bg.png"><img src="<%=request.getContextPath() %>/images/flags.png"/></td>
 	</tr>
 	</table>
@@ -156,16 +183,19 @@ else {
 
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
 <tr>
-<td width="740">
+<td width="800">
 <ul class="menu">
 	<li id="FO"><a href="#" onclick="toggleVisibility('FrontOffice');">Front Office</a></li>
 	<li><a href="#" onclick="toggleVisibility('Housekeeping');">Housekeeping</a></li>
 	<li><a href="#" onclick="toggleVisibility('Engineering');">Engineering</a></li>
 	<li><a href="#" onclick="toggleVisibility('HR');">Human Resources</a></li>
 	<li><a href="#" onclick="toggleVisibility('Inventory');">Inventory</a></li>
-	<li><a href="#" onclick="toggleVisibility('SalesMarketing');">Sales & Marketing</a></li>
+	<li><a href="#" onclick="toggleVisibility('SalesMarketing');">Marketing</a></li>
 	<li><a href="#" onclick="toggleVisibility('Accounting');">Accounting</a></li>
 	<li><a href="#" onclick="toggleVisibility('Reports');">Reports</a></li>
+	<% if ("ADMIN".equals(role.getLevel())) { %>
+	<li><a href="#" onclick="toggleVisibility('Administration');">Administration</a></li>
+	<% } %>
 </ul> 
 </td>
 <td bgcolor="#ffffff" width="100%" style="border-left: 1px solid #6f9dd9;"></td>

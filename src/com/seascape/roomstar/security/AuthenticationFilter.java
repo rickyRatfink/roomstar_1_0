@@ -7,14 +7,14 @@ import java.util.logging.Logger;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
-import javax.servlet.ServletException; 
+import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.seascape.roomstar.hibernate.dao.RoomTypeDao;
+import com.seascape.roomstar.domain.Employee;
 
 public class AuthenticationFilter implements Filter {
 
@@ -36,8 +36,8 @@ public class AuthenticationFilter implements Filter {
 		if (null == session) {
 			response.sendRedirect(contextPath + "/login.jsp");
 		} else {
-			String logged = (String) session.getAttribute("authenticated");
-			if (logged == null || !"YES".equals(logged)) {
+			Employee employee = (Employee) session.getAttribute("employee");
+			if (employee == null ) {
 				response.sendRedirect(contextPath + "/login.jsp");
 			} else
 				chain.doFilter(request, response);

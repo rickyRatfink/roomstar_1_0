@@ -16,5 +16,7 @@
     <mapping resource="com/seascape/roomstar/hibernate/mappings/Customer.hbm.xml"/> 
     <mapping resource="com/seascape/roomstar/hibernate/mappings/Address.hbm.xml"/> 
     <mapping resource="com/seascape/roomstar/hibernate/mappings/Reservation.hbm.xml"/> 
+    <mapping resource="com/seascape/roomstar/hibernate/mappings/Employee.hbm.xml"/> 
+    <mapping resource="com/seascape/roomstar/hibernate/mappings/Role.hbm.xml"/> 
   </session-factory>
 </hibernate-configuration>

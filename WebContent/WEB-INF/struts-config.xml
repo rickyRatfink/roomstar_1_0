@@ -9,6 +9,7 @@
     <form-beans>
         <form-bean name="loginForm" type="com.seascape.roomstar.struts.form.LoginForm"></form-bean>
         <form-bean name="walkInForm" type="com.seascape.roomstar.struts.form.WalkInForm"></form-bean>
+        <form-bean name="configForm" type="com.seascape.roomstar.struts.form.ConfigForm"></form-bean>
     </form-beans>
     
     <global-exceptions>
@@ -24,7 +25,7 @@
         <action path="/Welcome" forward="/login.jsp"/>
         <action path="/Error" forward="/error.jsp"/>
          
-         <action name="loginForm" path="/Login" type="com.seascape.roomstar.struts.action.LoginAction" scope="request" input="/login.jsp" 
+         <action name="loginForm" path="/Login" type="com.seascape.roomstar.struts.action.LoginAction" scope="session" input="/login.jsp" 
              validate="true">
                  <forward name="success" path="/index.jsp" redirect="true"/>
                  <forward name="failure" path="/loginError.jsp" redirect="true"/>
@@ -37,6 +38,16 @@
                 <forward name="failure" path="/pages/frontDesk/walkIn.jsp" redirect="true"/>
                 <forward name="error" path="/pages/error.jsp" redirect="true"/>
                 
+         </action>
+         
+         <action name="configForm" path="/Config" type="com.seascape.roomstar.struts.action.ConfigAction" scope="request" input="/pages/admin/configuration/roomType.jsp"
+             >
+                <forward name="success" path="/pages/admin/configuration/roomType.jsp" redirect="true"/>
+                <forward name="roomType_success" path="/pages/admin/configuration/roomType.jsp" redirect="true"/>
+                <forward name="rateType_success" path="/pages/admin/configuration/rateType.jsp" redirect="true"/>
+                <forward name="roomType_failure" path="/pages/admin/configuration/roomType.jsp" redirect="true"/>
+                <forward name="rateType_failure" path="/pages/admin/configuration/rateType.jsp" redirect="true"/>
+                <forward name="error" path="/pages/error.jsp" redirect="true"/>
          </action>
         
     </action-mappings>

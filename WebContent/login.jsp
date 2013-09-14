@@ -157,7 +157,7 @@ body {
             </tr>
             <tr>
             	<td class="fieldInput" colspan="2">
-            		<html:text property="username" size="20" maxlength="20" styleClass="textbox"></html:text>
+            		<html:text property="employee.username" size="20" maxlength="20" styleClass="textbox"></html:text>
             	</td>
             </tr>
             <tr>
@@ -165,7 +165,7 @@ body {
             </tr>
             <tr>
             	<td class="fieldInput" colspan="2">
-            		<html:password property="password" size="20" maxlength="20" styleClass="textbox"></html:password>
+            		<html:password property="employee.password" size="20" maxlength="20" styleClass="textbox"></html:password>
             		
            		</td>
             </tr>
